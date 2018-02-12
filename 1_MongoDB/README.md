@@ -85,13 +85,13 @@ Your cookbook is ready. Type `cd cookbooks/mongodb` to enter it.
 
 default.rb
 ##
-# Cookbook:: mongodb
-# Recipe:: default
+#Cookbook:: mongodb
+#Recipe:: default
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
+#Copyright:: 2018, The Authors, All Rights Reserved.
 
-# add yum clean all.
-# yum update 
+#add yum clean all.
+#yum update 
 
 
 yum_repository 'mongodb' do
@@ -123,7 +123,7 @@ execute 'chkconfig' do
 ignore_failure true
 end
 
-# RESULT:
+#### RESULT:
 
 Starting Chef Client, version 13.6.4
 resolving cookbooks for run list: []
