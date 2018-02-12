@@ -13,14 +13,12 @@ Preparing...                ########################################### [100%]
 Thank you for installing Chef Development Kit!
 
 
-# Checked the Ruby version & set path to chef sdk version ############
+#### Checked the Ruby version & set path to chef sdk version ############
 Ruby Version set to chef sdk ver:
 echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
 
  echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
-
-## End of setup
 
 # MongoDB install Chef Recipe creation instructions 
 
@@ -36,7 +34,7 @@ ls
 mkdir cookbooks
 ls
 
- ## RESULT:
+ #### RESULT:
 [root@osboxes mongo-chef]# ls
 cookbooks
 
@@ -76,23 +74,21 @@ Your cookbook is ready. Type `cd cookbooks/mongodb` to enter it.
 
 7 directories, 9 files
 
-### Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
+#### Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
 
-### Now run the Cookbook:
+#### Now run the Cookbook:
 [root@osboxes recipes]# chef-client --local-mode default.rb 
 
-### RESULT - 5X unsuccessful runs with errors - please see unsucessful_runs.txt, with possible issues and solutions.
+#### RESULT - 5X unsuccessful runs with errors - please see unsucessful_runs.txt, with possible issues and solutions.
+
+# MongoDb install Chef Recipe
 
 default.rb
-##
-#Cookbook:: mongodb
-#Recipe:: default
-#
-#Copyright:: 2018, The Authors, All Rights Reserved.
 
-#add yum clean all.
-#yum update 
+Cookbook:: mongodb
+Recipe:: default
 
+Copyright:: 2018, The Authors, All Rights Reserved.
 
 yum_repository 'mongodb' do
 	description "MongoDB Repository"
@@ -105,9 +101,6 @@ end
 package 'mongodb-org' do
 	:install  
 end
-
-
-#service mongod start
 
 service 'mongod' do
 	#supports : restart  => true
