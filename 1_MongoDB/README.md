@@ -1,10 +1,11 @@
-##################################### -  Setup & Environment ###########################################################
+#  Setup & Environment 
+###########################################################
 
 1) Downloaded and install VirtualBox running CentOs 7 - Linux 64 bit
 2) Install chef in the virtual machine using the command: 
 > $ sudo rpm -Uvh https://packages.chef.io/files/stable/chefdk/2.4.17/el/7/chefdk-2.4.17-1.el7.x86_64.rpm
 
-#  RESULT :
+#### RESULT :
 Retrieving https://packages.chef.io/files/stable/chefdk/2.4.17/el/7/chefdk-2.4.17-1.el7.x86_64.rpm
 warning: /var/tmp/rpm-tmp.b3AyNw: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
 Preparing...                ########################################### [100%]
@@ -12,19 +13,18 @@ Preparing...                ########################################### [100%]
 Thank you for installing Chef Development Kit!
 
 
-# #################################### Checked the Ruby version & set path to chef sdk version ############
+# Checked the Ruby version & set path to chef sdk version ############
 Ruby Version set to chef sdk ver:
 echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
 
  echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
 
-######################################## End of setup ############################################################
+###### End of setup ############################################################
 
-############################MongoDB install instructions #########################################################
+# MongoDB install Chef Recipe creation instructions ###########################
 
-Create a directory called mongo-chef. 
-We will use this directory to store the recipe to install mongo Db
+Create a directory called mongo-chef.  We will use this directory to store the recipe to install mongo Db
 We have already downloaded chef Sdk in the previous step 
 
 - Rebooted my Virtual box and logged in as root
@@ -76,7 +76,7 @@ Your cookbook is ready. Type `cd cookbooks/mongodb` to enter it.
 
 7 directories, 9 files
 
-# 4 Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
+#  Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
 
 # Now run the Cookbook:
 [root@osboxes recipes]# chef-client --local-mode default.rb 
