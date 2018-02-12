@@ -1,5 +1,5 @@
 #  Setup & Environment 
-###########################################################
+
 
 1) Downloaded and install VirtualBox running CentOs 7 - Linux 64 bit
 2) Install chef in the virtual machine using the command: 
@@ -20,9 +20,9 @@ echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.configuration_file && 
  echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
 
-###### End of setup ############################################################
+## End of setup
 
-# MongoDB install Chef Recipe creation instructions ###########################
+# MongoDB install Chef Recipe creation instructions 
 
 Create a directory called mongo-chef.  We will use this directory to store the recipe to install mongo Db
 We have already downloaded chef Sdk in the previous step 
@@ -36,16 +36,16 @@ ls
 mkdir cookbooks
 ls
 
- #### RESULT:
+ ## RESULT:
 [root@osboxes mongo-chef]# ls
 cookbooks
 
-################# COOKBOOK :######################################################################
+# COOKBOOK :
 ###Next, generate a cookbook for all mongoldb installation instructions:
 
 [root@osboxes mongo-chef]# chef generate cookbook cookbooks/mongodb
 
-##### RESULT:
+#### RESULT:
 
 Generating cookbook mongodb
 - Ensuring correct cookbook file content
@@ -53,7 +53,7 @@ Generating cookbook mongodb
 - Ensuring correct delivery build cookbook content
 Your cookbook is ready. Type `cd cookbooks/mongodb` to enter it.
 
-# Check the directory structure. I have already installed the tree package to view directories as tree 
+### Check the directory structure. I have already installed the tree package to view directories as tree 
 
 [root@osboxes mongodb]# tree
 .
@@ -76,12 +76,12 @@ Your cookbook is ready. Type `cd cookbooks/mongodb` to enter it.
 
 7 directories, 9 files
 
-#  Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
+### Create a recipe file where I will enter the resources and actions to perform on each resource to install mongoldb. 
 
-# Now run the Cookbook:
+### Now run the Cookbook:
 [root@osboxes recipes]# chef-client --local-mode default.rb 
 
-# RESULT - 5X unsuccessful runs with errors - please see unsucessful_runs.txt, with possible issues and solutions.
+### RESULT - 5X unsuccessful runs with errors - please see unsucessful_runs.txt, with possible issues and solutions.
 
 default.rb
 ##
