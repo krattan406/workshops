@@ -15,6 +15,7 @@
 	MongoDB server version: 3.6.2
 	-etc.(truncated)----
 
+7) You are now able to use MongoDb !
 
 
 #  Setup & Environment 
