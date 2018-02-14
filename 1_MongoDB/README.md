@@ -9,7 +9,9 @@ Assumption: You have a virtualbox with centOs7 and ChefDk 2.4.17
 
 # Test
  From terminal, login mongo shell:
+
  	> mongo
+ 
  Result: 
  	You are now logged in:
 	root@osboxes mongodb]# mongo
