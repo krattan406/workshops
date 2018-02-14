@@ -4,7 +4,7 @@ Assumption: You have a virtualbox with centOs7 and ChefDk 2.4.17
 
 1) Login your virtualbox as super user from terminal.
 2) Copy the cookbook directory to a base directory
-3) change working directory to  <base dir>/cookbooks
+3) Change working directory to  <base dir>/cookbooks
 4) Run the tomcat installation cookbook:
         sudo chef-client --local-mode --runlist 'recipe[tomcat-chef]'
  
