@@ -1,9 +1,9 @@
 
 # Usage
 
-1) Copy the cookook to your virtualBox running CentOs 7 and 
-2) login as root 
-3) Change working directory to <base dir>/cookbooks/mongodb
+1) Copy the cookook to your virtualBox running CentOs 7 and ChefDk kit ver 2.4.17.
+2) login as root. 
+3) Change working directory to <base dir where you copied the cookbook>/cookbooks/mongodb.
 4) Run mongo install cookbook :
 	sudo chef-client --local-mode recipes/default.rb 
 5) login mongo shell:
