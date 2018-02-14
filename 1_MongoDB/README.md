@@ -1,5 +1,26 @@
+
+# Usage
+
+1) Copy the cookook to your virtualBox running CentOs 7 and 
+2) login as root 
+3) Change working directory to <base dir>/cookbooks/mongodb
+4) Run mongo install cookbook :
+	sudo chef-client --local-mode recipes/default.rb 
+5) login mongo shell:
+	> mongo
+6) You are now logged in:
+	root@osboxes mongodb]# mongo
+	MongoDB shell version v3.6.2
+	connecting to: mongodb://127.0.0.1:27017
+	MongoDB server version: 3.6.2
+	-etc.(truncated)----
+
+
+
 #  Setup & Environment 
 
+Note : This setup was done one time to set the environment of my virtualBox centOS7 
+and ChefDk kit ver 2.4.17
 
 1) Downloaded and install VirtualBox running CentOs 7 - Linux 64 bit
 2) Install chef in the virtual machine using the command: 
@@ -16,9 +37,7 @@ Thank you for installing Chef Development Kit!
 #### Checked the Ruby version & set path to chef sdk version ############
 Ruby Version set to chef sdk ver:
 echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
-
- echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
-
+echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
 # MongoDB install Chef Recipe creation instructions 
 
