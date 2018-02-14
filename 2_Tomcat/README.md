@@ -1,45 +1,53 @@
-# Install and Configure Apache Tomcat
+# Usage
 
-The [Apache Tomcat®](http://tomcat.apache.org/) software is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. The Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket specifications are developed under the Java Community Process.
+Assumption: You have a virtualbox with centOs7 and ChefDk 2.4.17
 
-## Goal
+1) Login your virtualbox as super user from terminal.
+2) Copy the cookbook directory to a base directory
+3) change working directory to  <base dir>/cookbooks
+4) Run the tomcat installation cookbook:
+        sudo chef-client --local-mode --runlist 'recipe[tomcat-chef]'
+ 
+ Result - 
+       [2018-02-14T17:11:39-05:00] WARN: No config file found or specified on command line, using command line options.
+       Starting Chef Client, version 13.6.4
+       resolving cookbooks for run list: ["tomcat-chef"]
+       Synchronizing Cookbooks:
+      - tomcat-chef (0.1.0)
+       Installing Cookbook Gems:
+       Compiling Cookbooks...
+      Converging 13 resources
+           Recipe: tomcat-chef::default
+                 * yum_package[java-1.7.0-open 
+  -- etc - Truncated
 
-Use Chef to successfully install and configure tomcat on a RHEL7-based target system.
 
-## Success Criteria
+## Test
 
-You should be prepared and able to demonstrate the following:
+root@osboxes cookbooks]# curl localhost/
 
-* Your Chef cookbook successfully executes on your target node without errors
-* Your Chef cookbook is portable and can be run by Chef to validate your work. Please include any instructions or assumptions needed to successfully execute your cookbook.
-* You can interact with the default tomcat site in a browser or successfully `curl localhost` on the target system
-* You can run `chef-client` multiple times without failures
-* Your GitHub.com source code repository shows the history of your work
+Result:
+If tomcat has been sucessfully installed and started using the cookbook then output of above curl is :
+ 
+ <html>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>
 
-You should be able to explain the following:
+## References
+* https://docs.chef.io/resource_template.html
+* https://docs.chef.io/resource_chef_client.html
+* https://docs.chef.io/resource_remote_file.html
+* https://docs.chef.io/resource_rpm_package.html
+* https://docs.chef.io/resource_cookbook_file.html
+* https://docs.chef.io/resource_service.html
+* https://docs.chef.io/resource_chef_client.html
+* https://www.youtube.com/watch?v=FOYc_SGWE-0
+* https://learn.chef.io/modules/learn-the-basics/rhel/virtualbox/make-your-recipe-more-manageable#/
+* https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7
+* https://files.fosswire.com/2007/08/fwunixref.pdf
+* https://linux.die.net
 
-* Steps taken to achieve the end result
-* Build and test process of Chef code
-* Tools and resources used in the process
 
->Note: You are NOT required to use Chef Server for this exercise, but you may if that is your preference.
 
-## Instructions
-
-* Translate the Tomcat installation instructions from `INSTRUCTIONS.rb` into Chef code that completes the installation and configuration
-* Use the Chef [Resources Reference](https://docs.chef.io/resources.html) to find the most appropriate Chef resources to use for each task
-* Once you feel you have met the success criteria outlined above, send a link to your GitHub.com repo to the person coordinating these workshops on your behalf
-* Provide instructions for us to run your cookbook so that we can test your work.
-
-There are a couple of ways that you can write, test and run your cookbook.
-
-* Write and test your cookbook locally using Test Kitchen via Vagrant + Virtual Box, or the cloud platform of your choice.
-  * Steps for this option are outlined [here](https://learn.chef.io/tutorials/local-development/)
-* Develop directly on your RHEL-based virtual machine
-  * Write your cookbook in vim, nano or emacs, and run `chef-client` in `--local-mode`
-  * The ChefDK or Chef Client must be installed on the VM first
-
-## Suggested Resources
-
-* Use the [Chef Documentation](http://docs.chef.io) to identify and use resources that will help you model the desired state of your infrastructure.
-* [Tomcat Installation Instructions](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7)
