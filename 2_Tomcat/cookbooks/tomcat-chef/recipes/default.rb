@@ -1,3 +1,4 @@
+
 package 'java-1.7.0-openjdk-devel'
 
 group 'tomcat'
@@ -15,8 +16,8 @@ remote_file 'apache-tomcat-8.5.20.tar.gz' do
 end
 
 directory '/opt/tomcat' do
-	 mode '0700'
-	group 'tomcat'	
+	 mode '0777'
+	group 'tomcat'
 end
 
 execute 'tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
@@ -26,12 +27,17 @@ execute "manage permissions conf" do
   command "chgrp -R tomcat /opt/tomcat/conf && chmod g+r /opt/tomcat/conf/*"
 end
 
-
-
 directory '/opt/tomcat/conf' do
-	mode '0070'
+	mode '0777'
 end
 
+execute "manage permissions bin" do
+  command "chgrp -R tomcat /opt/tomcat/bin && chmod g+r /opt/tomcat/bin"
+end
+
+directory '/opt/tomcat/bin' do
+	mode '0777'
+end
 
 execute 'chmod -R g+r /opt/tomcat/conf/*'
 
@@ -49,12 +55,6 @@ execute 'systemctl daemon-reload'
 service 'tomcat' do
 	action [:start, :enable]
 end
-
-
-
-
-
-
 
 
 
